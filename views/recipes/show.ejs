@@ -1,0 +1,66 @@
+<%- include('../partials/header') %>
+
+<section id="detail-page">
+  <!-- <div></div> -->
+    <div>Name:</div>
+    <div><%= recipe.name %></div><br>
+    <div>Origin: </div>
+    <div><%= recipe.origin %></div><br>
+    <div>Ingredients:
+    <%= recipe.ingredients %></div><br>
+    <div>Instructions: 
+    <%= recipe.instructions %></div><br>
+    <div>Time: 
+    <%= recipe.time %></div>
+</section><br>
+<a href="/recipes/<%= recipe._id %>/edit">Edit Recipe</a>
+
+<br>
+
+<h2>Reviews</h2>
+<form id="review-form" action="/recipes/<%= recipe._id %>/reviews" method="POST"> 
+    <label>Review:</label>
+    <textarea name="content"></textarea>
+    <label>Rating:</label>
+    <select name="rating">
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+    </select>
+    <input type="submit" value="Add Review">
+</form><br>
+<br>
+
+<% if (recipe.reviews.length) { %>
+    <table>
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Review</th>
+            <th>Rating</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% let total = 0 %>
+          <% recipe.reviews.forEach(function(r) { %>
+            <% total += r.rating %>
+            <tr>
+              <td><%= r.createdAt.toLocaleDateString() %></td>
+              <td><%= r.content %></td>
+              <td><%= r.rating %></td>
+            </tr>
+          <% }); %>
+          <tr>
+            <td colspan="2"></td>
+            <td><strong><%= (total / recipe.reviews.length).toFixed(1) %></strong></td>
+          </tr>
+        </tbody>
+      </table>
+    <% } else { %>
+      <h5>No Reviews Yet</h5>
+    <% } %>
+
+    
+<%- include('../partials/footer') %>
