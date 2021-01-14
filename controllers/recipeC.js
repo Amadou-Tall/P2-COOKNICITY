@@ -59,6 +59,11 @@ function updateRecipe(req, res) {
     recipeModel.findById(req.params.id, function(err, recipe) {
 console.log(recipe);
       recipe.name = req.body.newName;
+      recipe.origin = req.body.newOrigin;
+      recipe.ingredients = newIngredients;
+      recipe.instructions = newInstructions;
+      recipe.time = newTime;
+      recipe.image = newImage;
       recipe.save(function(err) {
           res.redirect('/recipes');
       })
