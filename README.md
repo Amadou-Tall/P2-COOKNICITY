@@ -30,20 +30,20 @@ User can create a new recipe, that will be posted on All Recipes.
 ![image](https://i.imgur.com/KMmgLpZ.jpg)
 
 # Technologies Used:
-HTML
-CSS
-Javsscript
-MongooseDB
-Mongoose
-Heroku
-Dotenv
+*HTML
+*CSS
+*Javsscript
+*MongooseDB
+*Mongoose
+*Heroku
+*Dotenv
 
 # Features to be added:
-A Blog on the welcome page, for non-members
-A user profile for each member
-Add option to create communities/groups between members
-Add option to live chat between members
-Add option to upload videos.
+*A Blog on the welcome page, for non-members
+*A user profile for each member
+*Add option to create communities/groups between members
+*Add option to live chat between members
+*Add option to upload videos.
 
 # Link to page:
 https://cooknicity-app.herokuapp.com/
