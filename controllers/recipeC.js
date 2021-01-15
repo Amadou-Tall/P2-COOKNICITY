@@ -37,8 +37,11 @@ function create(req, res) {
 }
 
 function deleteRecipe(req, res) {
-    recipeModel.findOne(req.params.id, function(err, recipe) {
-      recipeModel.deleteOne(function(err) {
+    // console.log(req.params.id)
+    recipeModel.findById(req.params.id, function(err, targetRecipe) {
+        // console.log(targetRecipe);
+        targetRecipe.remove()
+        targetRecipe.save(function(err) {
         res.redirect('/recipes');
     });
 });
@@ -55,11 +58,7 @@ function editRecipe(req, res) {
 }
 
 function updateRecipe(req, res) {
-    console.log(req.params.id, req.body);
     recipeModel.findById(req.params.id, function(err, recipe) {
-console.log(recipe);
-
-// recipe = req.body;
       recipe.name = req.body.newName;
       recipe.origin = req.body.newOrigin;
       recipe.ingredients = req.body.newIngredients;
