@@ -12,7 +12,7 @@ function index(req, res, next) {
     userModel.find({})
     .sort(sortKey).exec(function(err, users) {
       if (err) return next(err);
-      res.render('index', { title: 'Cooknicity',
+      res.render('index', { title: 'Welcome to Cooknicity',
         users,
         user: req.user, 
         name: req.query.name, 

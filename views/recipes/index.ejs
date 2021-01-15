@@ -1,23 +1,27 @@
 <%- include('../partials/header') %>
 
+    <% results.forEach(function(r) { %>
+        <br><br>
+        <div class="index-page">
 
-<% results.forEach(function(r) { %>
-    <br><br>
-<li>
-    <%= r.name %>
-    <br>
-    <%= r.origin %>
+            <li>
+                <br>
+                <img id="picture" src= '<%= r.image %>'>
+                <br><br>
+                <%= r.name %>
+                <br><br>
+                <%= r.origin %>
+                <br><br>
+                <a href="/recipes/<%= r._id %>">How To Make It</a>
+                <br>
+            </li>
+            
+        </div>
 
-    <img src= '<%= r.image %>'>
-    
-</li>
-<br>
-    <a href="/recipes/<%= r._id %>">Details</a><br>
-
-    <form action="/recipes/ <%= r._id %>?_method=DELETE" method="POST">
+    <form id="remove" action="/recipes/ <%= r._id %>?_method=DELETE" method="POST">
         <button type="submit" class="btn">delete</button>
     </form>  
 
-<% }) %>
+    <% }) %>
 
 <%- include('../partials/footer') %>

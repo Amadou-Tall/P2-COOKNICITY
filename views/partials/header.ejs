@@ -10,21 +10,35 @@
 </head>
 
 <body>
-  <!-- <div class="container"> -->
-    
-    <nav>
-          <% if (user) { %>
-            <a href="/">HOME</a><br>
-            <br>
-            <a href="/recipes">RECIPES</a><br>
-            <br>
-            <a href="/recipes/new-recipe">ADD RECIPE</a><br>
-            <a href="/logout">Log Out</a>
-          <% } else { %>
-            <a href="/about">ABOUT</a>
-            <a href="/auth/google">Login with Google</a>
-          <% } %>
-    </nav>
-
-    <main>
+  
+  <nav>
+    <% if (user) { %>
+      <div>
+        <a href="/">HOME</a>
+      </div>
+      <br><br>
+      <div>
+        <a href="/recipes">RECIPES</a>
+      </div>
+      <br><br>
+      <div>
+        <a href="/recipes/new-recipe">ADD RECIPE</a>
+      </div>
+      <br>
+      <div>
+        <a href="/logout">Log Out</a>
+      </div>
+    <% } else { %>
+      <div>
+        <a href="/about">ABOUT</a>
+      </div>
+      <div>
+        <a href="/auth/google">Login with Google</a>
+      </div>
+    <% } %>
+  </nav>
+  
+  <main>
         <h1><%= title %></h1>
+
+        

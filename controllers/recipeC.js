@@ -12,7 +12,7 @@ module.exports = {
 
 function index(req, res) {
     recipeModel.find({}, function(err, results) {
-        res.render('recipes/index.ejs', {title: 'Recipes', results, user: req.user})
+        res.render('recipes/index.ejs', {title: 'All Recipes', results, user: req.user})
     });
 }
 
@@ -55,15 +55,17 @@ function editRecipe(req, res) {
 }
 
 function updateRecipe(req, res) {
-    // console.log(req.params.id, req.body);
+    console.log(req.params.id, req.body);
     recipeModel.findById(req.params.id, function(err, recipe) {
 console.log(recipe);
+
+// recipe = req.body;
       recipe.name = req.body.newName;
       recipe.origin = req.body.newOrigin;
-      recipe.ingredients = newIngredients;
-      recipe.instructions = newInstructions;
-      recipe.time = newTime;
-      recipe.image = newImage;
+      recipe.ingredients = req.body.newIngredients;
+      recipe.instructions = req.body.newInstructions;
+      recipe.time = req.body.newTime;
+      recipe.image = req.body.newImage;
       recipe.save(function(err) {
           res.redirect('/recipes');
       })

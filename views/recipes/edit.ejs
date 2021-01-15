@@ -1,13 +1,11 @@
 <%- include('../partials/header') %>
 
 <form action="/recipes/<%= recipe._id %>?_method=PUT" method="POST">
-    <!-- <button type="submit" class="btn">Edit Recipe</button>
-    <br> -->
     <label>Name: </label>
     <input type="text" name="newName" placeholder="<%= recipe.name %>">
     <br><br>
     <label>Origin: </label>
-    <input type="text" name="newOrigin">
+    <input type="text" name="newOrigin" placeholder="<%= recipe.origin %>">
     <br><br>
     <label>Ingredients: </label>
     <textarea name="newIngredients"></textarea><br>
